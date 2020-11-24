@@ -1,0 +1,27 @@
+
+<div class="container-fluid">
+  <% unless current_user.member_account%>
+    <%= link_to 'New Member', new_member_account_path %>
+  <% end %>
+
+  <br>
+
+  <div class="row">
+    <% @member_accounts.each do |member_account|%>
+    <div class="card border-info">
+      <div class="card-img-top">
+        <img src="<%= polymorphic_url(member_account.picture) %>" width: 100>
+      </div>
+        <div class="card-body">
+        <h2><%= "#{member_account.first_name} #{member_account.last_name}" %></h2>
+        <p><%= member_account.age %></p>
+        <p><%= member_account.gender %></p>
+        <p><%= member_account.marital_status %></p>
+        <p><%= member_account.address %></p>
+
+    </div>
+    <% end %>
+  </div>
+</div>
+
+
