@@ -1,6 +1,7 @@
 <h1>Editing Member Account</h1>
 
 <%= render 'form', member_account: @member_account %>
+<br>
 
-<%= link_to 'Show', @member_account %> |
-<%= link_to 'Back', member_accounts_path %>
+<%= link_to 'Show', @member_account, class: "btn btn-secondary" %> | 
+<%= link_to 'Back', member_accounts_path, class: "btn btn-warning" %>

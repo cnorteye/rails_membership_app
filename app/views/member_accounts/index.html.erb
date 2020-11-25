@@ -1,24 +1,27 @@
 
 <div class="container-fluid">
   <% unless current_user.member_account%>
-    <%= link_to 'New Member', new_member_account_path %>
+    <%= link_to 'New Member', new_member_account_path, class: "btn btn-primary"%>
   <% end %>
 
-  <br>
+  <br><br><br>
 
   <div class="row">
+  
     <% @member_accounts.each do |member_account|%>
-    <div class="card border-info">
-      <div class="card-img-top">
-        <img src="<%= polymorphic_url(member_account.picture) %>" width: 100>
-      </div>
+    <div class="card-deck">
+    <div class="card mb-3">
+        <img src="<%= polymorphic_url(member_account.picture) %>" class="card-img-top" alt="Card image cap">
         <div class="card-body">
-        <h2><%= "#{member_account.first_name} #{member_account.last_name}" %></h2>
-        <p><%= member_account.age %></p>
-        <p><%= member_account.gender %></p>
-        <p><%= member_account.marital_status %></p>
-        <p><%= member_account.address %></p>
-
+        <h2 class="card-title"><%= "#{member_account.first_name} #{member_account.last_name}" %></h2>
+        <p class="card-text"><%= member_account.age %></p>
+        <p class="card-text"><%= member_account.gender %></p>
+        <p class="card-text"><%= member_account.marital_status %></p>
+        <p class="card-text"><%= member_account.address %></p>  
+      </div>
+        <% unless current_user.id != member_account.id %>
+            <%= link_to 'Edit Profile', edit_member_account_path(current_user.id), class: "btn btn-info  mb-3 mr-2 ml-2" %>
+        <% end %>
     </div>
     <% end %>
   </div>

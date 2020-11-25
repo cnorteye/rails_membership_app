@@ -5,8 +5,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.1/examples/sticky-footer-navbar/">
+
+  <!-- JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/raty/2.9.0/jquery.raty.js" integrity="sha512-sQjwIvhxEuNoBz1gkCnITZ0Sxh9P0+ve3IQYa0FujZpWer5a8WH9Vq0dnOagO9DVBewnV/NBr1w/1Aqay8fxcQ==" crossorigin="anonymous"></script>
   <style>
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
@@ -23,15 +30,13 @@
 </head>
 <body>
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e6d595;">
+    <a class="navbar-brand" href="<%= member_accounts_path %>">!Member</a>
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
+        <span class="icon-bar"></span>                      
       </button>
-      <a class="navbar-brand" href="<%= member_accounts_path %>">!Member</a>
+      
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -40,31 +45,22 @@
         <li><a class="nav-link" href="<%= edit_member_account_path(current_user.id) %>">Update Info</a></li>
         <% end %>
       </ul>
-    <ul class="nav navbar-nav navbar-right">
+    <ul class="navbar-nav ml-auto">
        <% if user_signed_in? %>
-
-<li><a href="#">Logged in as <strong><%= current_user.email %></a></strong></li>
-
-<li> <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> </li>
-
-<li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %> </li>
-
-<% else %>
-
-<li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %> </li>
-
-<li><%= link_to "Login", new_user_session_path, :class => 'navbar-link' %> </li>
-
-<% end %>
+        <li><a href="#">Logged in as <strong><%= current_user.email %></a></strong></li>
+        <li class="ml-3"> <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> </li>
+        <li class="ml-3"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %> </li>
+        <% else %>
+        <li class="ml-3"><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %> </li>
+        <li class="ml-3"><%= link_to "Login", new_user_session_path, :class => 'navbar-link' %> </li>
+        <% end %>
       </ul>
-    </div>
-  </div>
 </nav>
 
-<div class="jumbotron">
+<div class="jumbotron jumbotron-fluid">
   <div class="container text-center">
-    <h1>Qodesh Phoenix</h1>      
-    <p>We shall not be few</p>
+    <h1 class="display-4">Qodesh Family Church Phoenix</h1>      
+    <p class="lead">Home to the mighty</p>
   </div>
 </div>
 
@@ -74,8 +70,10 @@
 
 <br><br>
 
-<footer class="container-fluid text-center">
-  <p>Footer Text</p>
+<footer class="footer">
+  <div class="container-fluid text-center">
+      <span class="text-muted">Qodesh Family Church | Membership App | 2020</span>
+    </div>
 </footer>
 
 </body>
