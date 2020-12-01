@@ -63,7 +63,8 @@ gem "aws-sdk-s3", require: false
 
 #gem 'cancancan'
 
-gem 'bootstrap'
+gem 'bootstrap-sass'
+gem 'sassc-rails'
 
 gem 'jquery-rails'
 
